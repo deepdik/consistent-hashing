@@ -1,0 +1,16 @@
+#version: '3'
+services:
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db  # Mount a volume for MongoDB data persistence
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+
+volumes:
+  mongodb_data:  # Define the volume for MongoDB data persistence

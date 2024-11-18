@@ -1,0 +1,42 @@
+#version: '3'
+services:
+  mongo1:
+    image: mongo
+    ports:
+      - "27019:27017"
+    volumes:
+      - mongo1_data:/data/db  # Volume for mongo1 data persistence
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+
+  mongo2:
+    image: mongo
+    ports:
+      - "27020:27017"
+    volumes:
+      - mongo2_data:/data/db  # Volume for mongo2 data persistence
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+
+  mongo3:
+    image: mongo
+    ports:
+      - "27021:27017"
+    volumes:
+      - mongo3_data:/data/db  # Volume for mongo3 data persistence
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+
+volumes:
+  mongo1_data:  # Volume for mongo1 data persistence
+  mongo2_data:  # Volume for mongo2 data persistence
+  mongo3_data:  # Volume for mongo3 data persistence
